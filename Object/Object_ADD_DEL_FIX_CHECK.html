@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Object Test</title>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            /* Creat a new object */
+            /* Method 1: 
+               Creat a object and add some attributes
+            */
+            var briansun = {
+                name:"briansun",
+                hp:100,
+                height:180,
+                smoke: function(){
+                    console.log("Somking! :(  HP--");
+                    thsi.hp--;
+                },
+                exercise: function(){
+                    console.log("Do a good job, bro! :)  HP++");
+                    this.hp++;
+                }
+            };
+
+            /* Method 2: */
+            /*
+                var briansun = new Object();
+                briansun.name = "briansun";
+                briansun.hp = 100;
+                briansun.height = 180;
+                briansun.smoke = function(){
+                    console.log("Somking! :(  HP--");
+                    thsi.hp--;
+                };
+                briansun.exercise = function(){
+                    console.log("Do a good job, bro! :)  HP++");
+                        this.hp++;               
+                }
+            */
+
+            // Add Attributes
+            // Add Attribute: the name of lover of briansun is "none"
+            // Add Attribute: the name of Favorite Porn Star of briansun is "none"
+            briansun.lovername = "none";
+            briansun.FavoritePornStar = "none";
+            //Check: briansun
+
+            // Delete Attributes of Object
+            /* *** Need Operator "delete" *** */
+            // Syntax: delete object.attribute
+            delete briansun.FavoritePornStar;
+            //Check: briansun
+
+            // Check Attribute
+            console.log(briansun.lovername);
+            //Check: briansun
+
+            // Change Attributes
+            briansun.hp = 200;
+            //Check: briansun
+            
+        </script>
+    </body>
+</html>
