@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>包装类</title>
+</head>
+<body>
+    <div style="font-size: 16px; font-family: sans-serif;">
+        <pre>
+            <h1>        基本包装类型</h1>
+            <em>
+                只有数字、布尔值、字符串才有其包装类，undefined、null、object没有
+            </em>
+                i.e.
+                var str = "hello";
+                console.log(str.length);    //按理来说字符串没有方法/属性可以调用，只有对象可以有
+                //原理：直接调用字符串的属性、方法会自动创建一个字符串包装类，当调用完该属性/方法后，该包装类自动
+                //      销毁，全程不影响原字符串
+
+                i.e.
+                var str = "abcd";
+                str.length = 2;
+                console.log(str);
+                //What will be output on the console?
+                // Ans: "abcd"
+
+                /*
+                解释：
+                    创建包装类在对三个基本量调用方法/属性时，在背后进行发生着这三步：
+                    1. 创建一个String/Number/Boolean类型的一个实例（临时的）
+                    2. 在这个实例上调用指定的方法
+                    3. 随即销毁这个实例
+
+                    那么对于上例来说，就是先创建一个String实例（对象）名叫str，对这个String对象调用length方法
+                    随即再销毁这个临时的str对象，代码如下：
+                    var str = new String();
+                    str.length = 2;
+                    str = null;
+                */
+        </pre>
+    </div>
+</body>
+</html>
