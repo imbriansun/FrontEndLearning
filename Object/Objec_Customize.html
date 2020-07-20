@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dome</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /* Creat a new custom 'class' */
+        function Dog(){
+            this.name = "Allen";
+            this.age = 5;
+            this.RateOfAnnoying = 0;
+            this.FavoriteCityInItatly = "Milano";
+            this.sex = "male";
+            this.bark = function(){
+                //Mention !!! "this"
+                this.RateOfAnnoying++;
+            }
+        }
+
+        var NewDog = new Dog();
+        
+        console.log(NewDog);
+    </script>
+</body>
+</html>
