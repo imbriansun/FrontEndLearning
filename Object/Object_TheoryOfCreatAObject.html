@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Object Test</title>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+        /* Creat a new custom 'class' */
+        /* Method/Function of creating a object */
+        function Dog(color){
+            this.name = "Allen";
+            this.age = 5;
+            this.RateOfAnnoying = 0;
+            this.FavoriteCityInItatly = "Milano";
+            this.sex = "male";
+            // filled later by transmit by parameter
+            this.color = color;
+            this.bark = function(){
+                //Mention !!! "this"
+                this.RateOfAnnoying++;
+            }
+        }
+
+        var NewDog = new Dog();
+        
+        console.log(NewDog);
+
+        /* Theory of Creat a object by myCreatFunc */
+        /*
+        function Dog(color){
+            ***step1:***
+            Initialize a new object without anything（初始化一个空对象）
+            var dog = {
+                name:"",
+                age:,
+                RateOfAnnoying:,
+                FavoriteCityInItatly:"",
+                sex:"",
+                color="",
+                bark = function(){
+                }
+            }
+
+            ***step2***
+            填充对象属性值
+            this.name = "Allen";
+            this.age = 5;
+            this.RateOfAnnoying = 0;
+            this.FavoriteCityInItatly = "Milano";
+            this.sex = "male";
+            // filled later by transmit by parameter
+            this.color = color;
+            this.bark = function(){
+                //Mention !!! "this"
+                this.RateOfAnnoying++;
+            }
+
+            ***step3***
+            返回对象
+            return this;
+        }    
+
+        */
+            
+        </script>
+    </body>
+</html>
