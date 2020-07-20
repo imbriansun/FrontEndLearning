@@ -7,12 +7,14 @@
 <body>
     <script type="text/javascript">
         /* Creat a new custom 'class' */
-        function Dog(){
+        function Dog(color){
             this.name = "Allen";
             this.age = 5;
             this.RateOfAnnoying = 0;
             this.FavoriteCityInItatly = "Milano";
             this.sex = "male";
+            // filled later by transmit by parameter
+            this.color = color;
             this.bark = function(){
                 //Mention !!! "this"
                 this.RateOfAnnoying++;
