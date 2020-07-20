@@ -7,6 +7,7 @@
 <body>
     <script type="text/javascript">
         /* Creat a new custom 'class' */
+        /* Method/Function of creating a object */
         function Dog(color){
             this.name = "Allen";
             this.age = 5;
@@ -24,6 +25,26 @@
         var NewDog = new Dog();
         
         console.log(NewDog);
+
+
+        function Student(name, age, sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+
+        var student_1 = new Student();
+
+        age = 10;
+        name = "Justin";
+        sex = "male";
+
+        student_1.name = name;
+        student_1.age = age;
+        student_1.sex = sex;
+
+        console.log(student_1);
+        
     </script>
 </body>
 </html>
