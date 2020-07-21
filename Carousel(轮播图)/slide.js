@@ -8,7 +8,7 @@ var wanted_index = 0;
 var left = 0;
 var count = 0;
 var time = 0;
-var mark = 1;	//Prevent violent clicks
+var mark = 1;	//Prevent violent click
 points[index].className = "point active";
 
 
@@ -111,6 +111,7 @@ var goIndex = function(wanted_index){
             goPrev();
         }
     }
+    points[index].className = "point active";
 }		
 
 for(var i = 0; i < points.length; i++){
