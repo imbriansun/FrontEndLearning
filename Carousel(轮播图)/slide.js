@@ -116,6 +116,8 @@ var goIndex = function(wanted_index){
 
 for(var i = 0; i < points.length; i++){
     points[i].addEventListener("click", function(){
+        try{clearInterval(timer);
+        }catch{}
         time = 0;
         var point_index = this.getAttribute("data");
         wanted_index = parseInt(point_index);
