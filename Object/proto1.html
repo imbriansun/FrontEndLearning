@@ -36,7 +36,7 @@
             为什么Location4结果为brian？
             Person.prototype.name相当于只是直接改变了prototype的一个属性
             而Person.prototype={}相当是先在最前面定义prototype
-            再new一个Person出来时将其赋值到person.__proto__上
+            再new一个Person出来时将其赋值到person.__proto__上,此时对象已经生成了
             打印出person.__proo__.name
             再给Person.prototype赋新值，旧值赋给person.__proto_后就被舍弃了就被替换成新值了
             </div>
