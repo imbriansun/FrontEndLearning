@@ -16,7 +16,7 @@
             Person.prototype.name = "brian";
     
             function Person(){
-    
+                //隐式过程：var this = {__proto__ : Person.prototype};
             }
            // Person.prototype.name = "Catalina"; // Location 1 打印出为Catalina
             // Person.prototype = {     //Location3
@@ -48,7 +48,7 @@
         Person.prototype.name = "brian";
 
         function Person(){
-
+            //隐式过程：var this = {__proto__ : Person.prototype};
         }
        // Person.prototype.name = "Catalina"; // Location 1 打印出为Catalina
         // Person.prototype = {     //Location3
