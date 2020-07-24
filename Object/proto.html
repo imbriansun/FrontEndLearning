@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proto_Type</title>
+
+</head>
+<body>
+    <dev class="p1">
+        <h1>概念</h1>
+        <p>原型是<b>function</b>对象的一个属性</p>
+        <p>原型定义了构造函数的构造出对象的公共祖先</p>
+        <p>通过该构造函数产生的对象，可以继承该原型的属性和方法，原型也是对象</p>
+        <p>prototype属性内含constructor方法，可被修改</p>
+    </dev>
+
+
+    <script type="text/javascript">
+
+        
+        function Person(name){
+            this.name = name;
+        }
+
+        Car.prototype = {
+            DateOfManufacture : "20200101",
+            PlaceOfProduction : "Suzhou, China",
+            PropotyOfCar : "Qualified",
+            constructor : Person
+            /* 修改后可用Car.prototype.constructor / car.constructor查看 */
+        }
+        function Car(name){
+            //错误：name = "BMW";
+            this.name = name;
+        }
+
+        car = new Car("BMW");
+    </script>
+</body>
+</html>
