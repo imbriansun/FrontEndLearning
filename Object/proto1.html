@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proto_Type</title>
+    <style>
+        #ans{
+            color: red;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+        
+            Person.prototype.name = "brian";
+    
+            function Person(){
+    
+            }
+           // Person.prototype.name = "Catalina"; // Location 1 打印出为Catalina
+            // Person.prototype = {     //Location3
+            //     name : "Catalina"
+            // }   //打印出为Catalina
+             person = new Person();
+          //Person.prototype.name = "Catalina"; // Location 2 打印出为Catalina
+    
+            // Person.prototype = {     //Location4
+            //     name : "Catalina"
+            // }   //打印出为brian
+    
+            console.log(person.__proto__.name); // 把Person.prototype.name = "Catalina";放在Location 1/2 效果是一样的
+    
+    
+            <div id="ans">
+            为什么Location4结果为brian？
+            Person.prototype.name相当于只是直接改变了prototype的一个属性
+            而Person.prototype={}相当是先在最前面定义prototype
+            再new一个Person出来时将其赋值到person.__proto__上
+            打印出person.__proo__.name
+            再给Person.prototype赋新值，旧值赋给person.__proto_后就被舍弃了就被替换成新值了
+            </div>
+    </pre>
+
+
+    <script>
+        
+        Person.prototype.name = "brian";
+
+        function Person(){
+
+        }
+       // Person.prototype.name = "Catalina"; // Location 1 打印出为Catalina
+        // Person.prototype = {     //Location3
+        //     name : "Catalina"
+        // }   //打印出为Catalina
+         person = new Person();
+      //Person.prototype.name = "Catalina"; // Location 2 打印出为Catalina
+
+        // Person.prototype = {     //Location4
+        //     name : "Catalina"
+        // }   //打印出为brian
+
+        console.log(person.__proto__.name); // 把Person.prototype.name = "Catalina";放在Location 1/2 效果是一样的
+
+
+        //为什么Location4结果为brian？见<p>部分
+    </script>
+</body>
+</html>

@@ -16,10 +16,12 @@
 
 
     <script type="text/javascript">
-
+        var obj = {
+            say : "hi"
+        }
         
         function Person(name){
-            this.name = name;
+            this.name = name + " is bitch";
         }
 
         Car.prototype = {
@@ -29,6 +31,12 @@
             constructor : Person
             /* 修改后可用Car.prototype.constructor / car.constructor查看 */
         }
+
+        /* function的prototype也可以修改成其他类（产生对象的） */
+        Car.prototype = obj;
+        //car.__proto__为say:"hi"
+
+
         function Car(name){
             //错误：name = "BMW";
             this.name = name;
