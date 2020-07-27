@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var book = {
+            "title":"pj",
+            edition:3,
+            year:2011,
+            toJSON:function(){
+                return this.title;
+            }
+        };
+
+        console.log(JSON.stringify(book));
+
+        console.log(JSON.stringify({book}));
+
+        console.log(JSON.stringify([book]));
+
+
+        /*
+        toJSON与stringify第二个参数（函数）有所不同的是：
+        stringify 第二个参数是回调函数时，只是对当前 key 对应的值进行修改。
+        而 toJSON 则是对当前对象进行修改。
+
+        */
+        var obj = {
+            key: 'foo'
+        };
+        var ret = JSON.stringify(obj, function (k, v) {
+            return k === "key" ? v.toUpperCase() : v;
+        });
+        console.log(ret);
+
+        var obj = {
+            key: 'foo',
+            toJSON: function () {
+                return 'bar';
+            }
+        };
+        var ret = JSON.stringify(obj);
+        console.log(ret);
+
+        // toJSON 的返回值直接代替了当前对象，而 stringify 的回调函数则仅仅是修改了当前值。
+
+        // OUTPUT：
+        // "pj"    JSON_Test.html:21 
+        // {"book":"pj"}   JSON_Test.html:23 
+        // ["pj"]  JSON_Test.html:38
+        // {"key":"FOO"}   JSON_Test.html:47 
+        // "bar"   JSON_Test.html:47
+    </script>
+</body>
+</html>
