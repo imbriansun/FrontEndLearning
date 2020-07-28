@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 打印原生对象的原型
+        console.log(Array.prototype);
+        console.log(String.prototype);
+
+        // 对原生对象的修改 -- 可以但不推荐
+        var prv = "AAA";
+
+        String.prototype.sayHello = function() {
+            return "Hello World!";
+        };
+
+        var msg = "Hey bro.";
+        console.log(msg.sayHello);  // 打印sayHello方法字符串
+        console.log(msg.sayHello());    // 打印sayHello方法的返回值
+
+        console.log(prv.sayHello());    // 测试修改String.prototype前建立的对象的__proto__指向
+
+    </script>
+</body>
+</html>
