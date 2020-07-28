@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var person = {
+            name : "nicholas"
+        };
+
+        /*
+        一旦更改configurable就不能再改configurable、enumerable的值了，否则报错
+        */
+
+        Object.defineProperty(person, "name", {
+            configurable:false
+        });
+
+        // Object.defineProperty(person, "name", {
+        //     configurable:true
+        // });
+        // 报错
+        
+        
+        // Object.defineProperty(person, "name", {
+        //     enumerable:false
+        // });
+        // 报错
+
+        Object.defineProperty(person, "name", {
+            value: "NICHOLAS"
+        });
+        // 更改属性键值成功
+
+        Object.defineProperty(person, "name", {
+            writable:false
+        });
+        // 更改成功
+    </script>
+</body>
+</html>

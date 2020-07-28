@@ -63,8 +63,21 @@
 
         console.log(person.__proto__.name); // 把Person.prototype.name = "Catalina";放在Location 1/2 效果是一样的
 
-
         //为什么Location4结果为brian？见<p>部分
+
+
+
+
+        person2 = new Person();
+
+        person2.__proto__.name = "BRIAN";
+        console.log("person2.__proto__.name & person.__proto__.name:");
+        console.log(person2.__proto__.name);
+        console.log(person.__proto__.name);
+
+        //输出的name均为BRIAN，说明这些实例的__proto__指向同一个原型对象
+
+        
     </script>
 </body>
 </html>
