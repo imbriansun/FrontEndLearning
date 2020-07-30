@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sumup(){
+            this.sum = 10;
+        };
+
+        sumup.prototype.sum = 100;
+
+        sumup.prototype.test = function(){
+            return this.sum;
+        }
+
+        var tmp = new sumup();
+
+        console.log("sumup.prototype的test方法返回的this.sum是：tmp.__proto__.test():" + tmp.__proto__.test());
+        console.log("如果说是100的话，那就说明this指代的是用.号调用方法最近的对象即tmp.__proto__这个原型对象")
+    </script>
+</body>
+</html>
