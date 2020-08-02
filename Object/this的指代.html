@@ -21,6 +21,7 @@
 
         console.log("sumup.prototype的test方法返回的this.sum是：tmp.__proto__.test():" + tmp.__proto__.test());
         console.log("如果说是100的话，那就说明this指代的是用.号调用方法最近的对象即tmp.__proto__这个原型对象")
+        //谁调用，谁是this，例如tmp.test()，这里的this无论在sumup函数中还是在sumup中的prototype对象的test方法里都指代tmp对象
     </script>
 </body>
 </html>
