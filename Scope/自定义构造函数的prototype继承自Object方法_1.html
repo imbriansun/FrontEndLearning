@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>一图解释构造函数、Object、Function类型的prototype关系：</h1>
+    <p>F12查看Script源码注释讲解</p>
+    <img src="https://s1.ax1x.com/2020/08/02/aYoPK0.png" alt="aYoPK0.png" border="0" />
+    <script>
+        var F = function () {}
+        // F.prototype.add = "ADD";
+        Object.prototype.a = function () {}
+        Function.prototype.b = function () {}
+
+        var f = new F()
+        // 请问f有方法a  方法b吗
+
+
+        /*
+            f的__proto__指向F.prototype，F.prototype.__proto__指向Object.prototype，所以f 可以取到a方法，
+            由于f的原型链上没经过Function.prototype，所以取不到b方法。
+            由于构造函数F是由Function new出来的，所以F.__proto__指向Function.prototype，所以F函数可以取到b方法。
+
+            F指代的构造函数实际上由三部分组成，new一个object，对object属性方法进行操作，返回这个object，因此f对象的__proto__
+            即为F.prototype（构造函数的prototype），这里F的prototype继承自Object的
+            
+            
+            // 红宝书148：创建了自定义的构造函数后，其原型对象默认只会取得constructor属性，其余方法都是从Object继承而来的 
+            // (只要创建一个函数都会有一个prototype属性，默认会在其中有一个constructor属性指向函数自己） 
+        */
+
+        /*
+            函数其实是Function类型的实例（函数也是对象），因此函数也有__proto__属性，指向Function.prototype
+        
+        */
+
+        /*
+
+
+            Object：   __proto__ ： Function.prototype  ，   prototype：  Object.prototype
+
+　　         Object.prototype：    __proto__ ：  null  ，   constructor  ：  Object
+        
+        */
+
+
+
+    </script>
+</body>
+</html>

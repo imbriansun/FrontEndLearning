@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                // T2
+        
+        var F = function() {};
+        Object.prototype.a = function() {
+        console.log("a()");
+        };
+        Function.prototype.b = function() {
+        console.log("b()");
+        };
+        var f = new F();
+        F.a();//a()
+        F.b();//b()
+        f.a();//a()
+        f.b();//Uncaught TypeError: f.b is not a function
+
+
+        //F.__proto__直接看不到，但是可以通过console.log(F.prototype);看constructor（即F）的__proto__项，发现里面有b，由于
+        //F函数是Function类的实现，因此F函数（身为对象）的__proto__中有实例化类的属性
+    </script>
+</body>
+</html>
