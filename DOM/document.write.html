@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>This is some content that you won't get to see because it will be overwritten.</p>
+    <script>
+        window.onload = function () {
+            document.write("Hello World!");
+        };
+        // 在文档加载结束后调用document.write会重写整个页面
+    </script>
+</body>
+
+</html>
