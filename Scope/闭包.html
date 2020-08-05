@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var op = document.querySelectorAll("p");
+        for (var j = 0; j < op.length; j++) {
+        op[j].onclick = function() {
+            alert(j);
+        };
+        }
+        //alert出来的值是一样的
+        // 解决办法一:
+        for (var j = 0; j < op.length; j++) {
+        (function(j) {
+            op[j].onclick = function() {
+            alert(j);
+            };
+        })(j);
+        }
+        // 解决办法二:
+        for (var j = 0; j < op.length; j++) {
+        op[j].onclick = (function(j) {
+            return function() {
+            alert(j);
+            };
+        })(j);
+        }
+        //解决方法三其实和二类似
+        for (var j = 0; j < op.length; j++) {
+        op[j].onclick = (function() {
+            var temp = j;
+            return function() {
+            alert(j);
+            };
+        })();
+        }
+
+        //这个例子和例子一几乎是一样的大家可以参考例子一
+    </script>
+</body>
+</html>

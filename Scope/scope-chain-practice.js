@@ -101,3 +101,5 @@ function testList() {
 }
 
 testList() //logs "item2 undefined" 3 times
+
+//改法：将buildList中的匿名立即执行函数后加参数(i)并把testList中for循环注释掉
