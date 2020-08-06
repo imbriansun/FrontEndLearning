@@ -3,9 +3,50 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 10% 10%;
+    text-shadow: 2px 2px black;
+    color: white;
 }
 
 #temperature{
     font-size: 60px;
 }
 
+#weatherContainer{
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 5px black;
+    padding: 50px;
+    border-radius: 10px;
+    position: absolute;
+    visibility: hidden;
+}
+
+#weatherContainer h1{
+    margin: 5px;
+    font-size: 42px;
+}
+/* 
+#documentIconImg{
+    box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+} */
+
+#searchContainer{
+    padding: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#searchContainer input{
+    width: 200px;
+}
+
+#searchContainer button{
+    background-color: white;
+    width: 60px;
+}
+.searchControl{
+    box-shadow: black;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}

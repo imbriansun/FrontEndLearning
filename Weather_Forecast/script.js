@@ -35,8 +35,19 @@ function handleResponse(response){
     windSpeedHeader.innerHTML = response.result.winddirect + " " + response.result.windpower;
     humidityElement.innerHTML = "湿度：" + response.result.humidity + "%";
 
+
+    // Handling hourlyWeatherForecast
+
+
+    // setPositionForWeatherInfo -- intraday
+    setPositionForWeatherInfo();
 }
 
+function setPositionForWeatherInfo(){
+    var weatherContainer = document.getElementById("weatherContainer");
+
+    weatherContainer.style.visibility = "visible";
+}
 
 
 function searchWeather(searchTerm){
