@@ -1,0 +1,11 @@
+body{
+    background-image: url("https://s1.ax1x.com/2020/08/06/ag0ILn.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 10% 10%;
+}
+
+#temperature{
+    font-size: 60px;
+}
+
