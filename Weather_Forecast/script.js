@@ -81,11 +81,24 @@ function handleResponse(response){
 
     // Handling weeklyWeatherInfo
     var hourlyWeatherList = document.getElementById("hourlyWeatherList");
+    for (var i = 0; i < 24; i++){
+        var thisHourInfo = document.createElement("li");
+        thisHourInfo.setAttribute("class", "item")
 
+        var timeNode = document.createElement("p");
+        timeNode.innerText = response.result.hourly[i].time;
+        thisHourInfo.appendChild(timeNode);
 
+        var imgNode = document.createElement("img");
+        imgNode.setAttribute("src", "https://www.jisuapi.com/weather/static/images/weathercn/" + response.result.hourly[i].img +".png");
+        thisHourInfo.appendChild(imgNode);
 
+        var temperatureNode = document.createElement("p");
+        temperatureNode.innerText = response.result.hourly[i].temp + "℃";
+        thisHourInfo.appendChild(temperatureNode);
 
-
+        hourlyWeatherList.appendChild(thisHourInfo);
+    }
 
 
     // setPositionForWeatherInfo
@@ -95,9 +108,14 @@ function handleResponse(response){
 function setPositionForWeatherInfo(){
     var weatherContainer = document.getElementById("weatherContainer");
     var weeklyWeatherContainer = document.getElementById("weeklyWeatherContainer");
+    var headerInfo = document.getElementById("header");
+    var ad = document.getElementById("provider");
+
 
     weatherContainer.style.visibility = "visible";
     weeklyWeatherContainer.style.visibility = "visible";
+    header.style.visibility = "hidden";
+    ad.style.visibility = "hidden";
 }
 
 
