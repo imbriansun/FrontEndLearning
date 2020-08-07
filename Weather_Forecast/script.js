@@ -13,6 +13,7 @@ function handleResponse(response){
         case "小雨":
         case "中雨":
         case "大雨":
+        case "雨":
             document.body.style.backgroundImage = 'url("https://s1.ax1x.com/2020/08/06/ag0ivj.png")';
             break;
         default:
@@ -36,17 +37,67 @@ function handleResponse(response){
     humidityElement.innerHTML = "湿度：" + response.result.humidity + "%";
 
 
-    // Handling hourlyWeatherForecast
+    // Handling weeklyWeatherInfo
+    var weeklyWeatherList = document.getElementById("weeklyWeatherList");
+
+    for (var i = 0; i < 7; i++) {
+        var thisDayInfo = document.createElement("li");
+        thisDayInfo.setAttribute("class","item");
+        thisDayInfo.setAttribute("style", "width: 92px");
+        
+        var dateNode = document.createElement("p");
+        dateNode.innerText = response.result.daily[i].date;
+        thisDayInfo.appendChild(dateNode);
+
+        var weekNode = document.createElement("p");
+        weekNode.innerText = response.result.daily[i].week;
+        thisDayInfo.appendChild(weekNode);
+
+        var dayTimeNode = document.createElement("div");
+        var dayTimeDescription = document.createElement("p");
+        dayTimeDescription.innerText = response.result.daily[i].day.weather;
+        dayTimeNode.appendChild(dayTimeDescription);
+        var dayTimeImg = document.createElement("img");
+        dayTimeImg.setAttribute("class","icon");
+        var imgUrl = "https://www.jisuapi.com/weather/static/images/weathercn/" + response.result.daily[i].day.img +".png";
+        dayTimeImg.setAttribute ("src", imgUrl);
+        dayTimeNode.appendChild(dayTimeImg);
+        thisDayInfo.appendChild(dayTimeNode);
+
+        var nightTimeNode = document.createElement("div");
+        var nightTimeDescription = document.createElement("p");
+        nightTimeDescription.innerText = response.result.daily[i].night.weather;
+        nightTimeNode.appendChild(nightTimeDescription);
+        var nightTimeImg = document.createElement("img");
+        nightTimeImg.setAttribute("class","icon");
+        var imgUrl = "https://www.jisuapi.com/weather/static/images/weathercn/" + response.result.daily[i].night.img +".png";
+        nightTimeImg.setAttribute("src", imgUrl);
+        nightTimeNode.appendChild(nightTimeImg);
+        thisDayInfo.appendChild(nightTimeNode);
+
+        weeklyWeatherList.appendChild(thisDayInfo);
+    }
 
 
-    // setPositionForWeatherInfo -- intraday
+    // Handling weeklyWeatherInfo
+    var hourlyWeatherList = document.getElementById("hourlyWeatherList");
+
+
+
+
+
+
+
+    // setPositionForWeatherInfo
     setPositionForWeatherInfo();
 }
 
 function setPositionForWeatherInfo(){
     var weatherContainer = document.getElementById("weatherContainer");
+    var weeklyWeatherContainer = document.getElementById("weeklyWeatherContainer");
 
     weatherContainer.style.visibility = "visible";
+    weeklyWeatherContainer.style.visibility = "visible";
 }
 
 

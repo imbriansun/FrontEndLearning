@@ -1,3 +1,7 @@
+*{
+    list-style: none;
+}
+
 body{
     background-image: url("https://s1.ax1x.com/2020/08/06/ag0ILn.png");
     background-size: cover;
@@ -18,16 +22,15 @@ body{
     border-radius: 10px;
     position: absolute;
     visibility: hidden;
+    left: 35px;
+    top: 80px;
 }
 
 #weatherContainer h1{
     margin: 5px;
     font-size: 42px;
 }
-/* 
-#documentIconImg{
-    box-shadow: 10px 10px 10px rgba(0,0,0,.5);
-} */
+
 
 #searchContainer{
     padding: 15px;
@@ -49,4 +52,30 @@ body{
     border: none;
     border-radius: 5px;
     padding: 5px;
+}
+
+#weeklyWeatherContainer{
+    visibility: hidden;
+}
+
+#weeklyWeatherList{
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 2px 2px 5px black;
+    position: absolute;
+    right: 140px;
+    top: 60px;
+    width: 700px;
+    height: 500px;
+}
+
+#weeklyWeatherList .item{
+    width:92px;
+    text-align:center;
+    float:left;
+    background-repeat:no-repeat;
+    background-position:right;
+    text-shadow: none;
+    font-size: 16px;
+    position:relative;
+    padding:11px 0 25px
 }
