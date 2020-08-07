@@ -24,6 +24,7 @@ function handleResponse(response){
             document.body.style.backgroundImage = 'url("https://s1.ax1x.com/2020/08/06/ag0ILn.png")';
             break;
     }
+    
     // Handling intradayWeatherInfo
     var cityHeader = document.getElementById("cityHeader");
     var temperatureElement = document.getElementById("temperature");
@@ -134,7 +135,21 @@ function searchWeather(searchTerm){
 document.getElementById("searchBtn").addEventListener("click", function(){
     var searchTerm = document.getElementById("searchInput").value;
     if(searchTerm){
+        claerDOM();
         searchWeather(searchTerm);
     }
 })
+
+
+function claerDOM(){
+    var parent = document.getElementById("weeklyWeatherList");
+    while(parent.children[0] != null){
+        parent.removeChild(parent.children[0])
+    };
+
+    parent = document.getElementById("hourlyWeatherList");
+    while(parent.children[0] != null){
+        parent.removeChild(parent.children[0])
+    };
+}
 
