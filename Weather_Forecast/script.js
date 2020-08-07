@@ -114,12 +114,13 @@ function setPositionForWeatherInfo(){
     var weeklyWeatherContainer = document.getElementById("weeklyWeatherContainer");
     var headerInfo = document.getElementById("header");
     var ad = document.getElementById("provider");
-
+    var hourlyWeatherContainer = document.getElementById("hourlyWeatherContainer");
 
     weatherContainer.style.visibility = "visible";
     weeklyWeatherContainer.style.visibility = "visible";
     header.style.visibility = "hidden";
     ad.style.visibility = "hidden";
+    hourlyWeatherContainer.style.visibility = "visible";
 }
 
 
