@@ -1,4 +1,8 @@
 function handleResponse(response){
+    if(response.status != 0){
+        alert("请输入正确的中国大陆城市中文简体名");
+        return;
+    }
     // Handling backgroundImg
     switch (response.result.weather){
         case "晴":
