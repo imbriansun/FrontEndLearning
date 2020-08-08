@@ -124,3 +124,8 @@ body{
     background-position:right;
     position: relative;
 }
+
+#hourlyWeatherList .item >img{
+    width: 30px;
+    height: 30px;
+}

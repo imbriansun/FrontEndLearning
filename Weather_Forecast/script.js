@@ -37,7 +37,7 @@ function handleResponse(response){
 
     cityHeader.innerHTML = response.result.city;
     weatherDescriptionHeader.innerText = response.result.weather;
-    temperatureElement.innerHTML = Math.floor(response.result.temp) + "&#176";
+    temperatureElement.innerHTML = response.result.temp + "°";
     windSpeedHeader.innerHTML = response.result.winddirect + " " + response.result.windpower;
     humidityElement.innerHTML = "湿度：" + response.result.humidity + "%";
 
@@ -60,7 +60,7 @@ function handleResponse(response){
 
         var dayTimeNode = document.createElement("div");
         var dayTimeDescription = document.createElement("p");
-        dayTimeDescription.innerText = response.result.daily[i].day.weather;
+        dayTimeDescription.innerText = response.result.daily[i].day.weather + "\n" + response.result.daily[i].day.temphigh + "°";
         dayTimeNode.appendChild(dayTimeDescription);
         var dayTimeImg = document.createElement("img");
         dayTimeImg.setAttribute("class","icon");
@@ -71,7 +71,7 @@ function handleResponse(response){
 
         var nightTimeNode = document.createElement("div");
         var nightTimeDescription = document.createElement("p");
-        nightTimeDescription.innerText = response.result.daily[i].night.weather;
+        nightTimeDescription.innerText = response.result.daily[i].night.weather + "\n" + response.result.daily[i].night.templow + "°";
         nightTimeNode.appendChild(nightTimeDescription);
         var nightTimeImg = document.createElement("img");
         nightTimeImg.setAttribute("class","icon");
@@ -84,7 +84,7 @@ function handleResponse(response){
     }
 
 
-    // Handling weeklyWeatherInfo
+    // Handling hourlyWeatherInfo
     var hourlyWeatherList = document.getElementById("hourlyWeatherList");
     for (var i = 0; i < 24; i++){
         var thisHourInfo = document.createElement("li");
