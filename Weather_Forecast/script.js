@@ -3,6 +3,7 @@ function handleResponse(response){
         alert("请输入正确的中国大陆城市中文简体名");
         return;
     }
+    claerDOM();
     // Handling backgroundImg
     switch (response.result.weather){
         case "晴":
@@ -106,7 +107,7 @@ function handleResponse(response){
     }
 
 
-    // setPositionForWeatherInfo
+    // setPositionForWeatherInfoVisible
     setPositionForWeatherInfo();
 }
 
@@ -135,10 +136,20 @@ function searchWeather(searchTerm){
 document.getElementById("searchBtn").addEventListener("click", function(){
     var searchTerm = document.getElementById("searchInput").value;
     if(searchTerm){
-        claerDOM();
         searchWeather(searchTerm);
     }
 })
+
+
+document.onkeydown = function (event) {
+    e = event ? event : (window.event ? window.event : null);
+    if (e.keyCode == 13) {
+        var searchTerm = document.getElementById("searchInput").value;
+        if(searchTerm){
+            searchWeather(searchTerm);
+        }
+    }
+}
 
 
 function claerDOM(){
@@ -151,5 +162,6 @@ function claerDOM(){
     while(parent.children[0] != null){
         parent.removeChild(parent.children[0])
     };
+
 }
 
