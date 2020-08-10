@@ -120,7 +120,7 @@ function handleResponse(response){
         context.fillText(response.result.daily[0].day.temphigh, tmpX, tmpY+20);
 
         for(var i = 1; i < 7 ; i++){
-            tmpX += 100;
+            tmpX += 90;
             tmpY = ( ((maxTemp - minTemp) - (Number(response.result.daily[i].day.temphigh) - minTemp))/(maxTemp - minTemp)) * 190;
             context.lineTo(tmpX, tmpY);
             context.arc(tmpX, tmpY, 2, 0, 2*Math.PI, false);
@@ -137,7 +137,7 @@ function handleResponse(response){
         context.fillText(response.result.daily[0].night.templow, tmpX, tmpY-10);
 
         for(var i = 1; i < 7 ; i++){
-            tmpX += 100;
+            tmpX += 90;
             tmpY = (( (maxTemp - minTemp) - (Number(response.result.daily[i].night.templow) - minTemp) )/(maxTemp - minTemp)) * 190;
             context.lineTo(tmpX, tmpY);
             context.arc(tmpX, tmpY, 2, 0, 2*Math.PI, false);
@@ -172,6 +172,8 @@ function handleResponse(response){
 
         hourlyWeatherList.appendChild(thisHourInfo);
     }
+
+    // 
 
 
     // setPositionForWeatherInfoVisible
