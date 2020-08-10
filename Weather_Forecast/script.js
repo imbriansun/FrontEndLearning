@@ -3,7 +3,7 @@ function handleResponse(response){
         alert("请输入正确的中国大陆城市中文简体名");
         return;
     }
-    claerDOM();
+    clearDOM();
     // Handling backgroundImg
     switch (response.result.weather){
         case "晴":
@@ -45,6 +45,9 @@ function handleResponse(response){
 
     // Handling weeklyWeatherInfo
     var weeklyWeatherList = document.getElementById("weeklyWeatherList");
+    
+    var minTemp = Number(response.result.daily[0].night.templow);
+    var maxTemp = Number(response.result.daily[0].day.temphigh);
 
     for (var i = 0; i < 7; i++) {
         var thisDayInfo = document.createElement("li");
@@ -70,6 +73,11 @@ function handleResponse(response){
         dayTimeNode.appendChild(dayTimeImg);
         thisDayInfo.appendChild(dayTimeNode);
 
+        var breakTag = document.createElement("div");
+        breakTag.innerHTML = "<br><br><br><br><br><br><br><br>";
+        thisDayInfo.appendChild(breakTag);
+
+
         var nightTimeNode = document.createElement("div");
         var nightTimeDescription = document.createElement("p");
         nightTimeDescription.innerText = response.result.daily[i].night.weather + "\n" + response.result.daily[i].night.templow + "°";
@@ -82,6 +90,65 @@ function handleResponse(response){
         thisDayInfo.appendChild(nightTimeNode);
 
         weeklyWeatherList.appendChild(thisDayInfo);
+
+        if(Number(response.result.daily[i].day.temphigh) > maxTemp){
+            maxTemp = Number(response.result.daily[i].day.temphigh);
+        }
+        if(Number(response.result.daily[i].night.templow) < minTemp){
+            minTemp = Number(response.result.daily[i].night.templow);
+        }
+
+    }
+
+    console.log("max"+maxTemp);
+    console.log("min"+minTemp);
+    
+    // Drawing weeklyWeatherChart
+    var drawing = document.getElementById("weeklyWeatherChart");
+
+    if(drawing.getContext){
+        var context = drawing.getContext("2d");
+
+        context.beginPath();
+
+        // HighTemp Chart
+        var tmpX = 50;
+        var tmpY = ( ((maxTemp - minTemp) - (Number(response.result.daily[0].day.temphigh) - minTemp))/(maxTemp - minTemp)) * 190;
+        context.moveTo(tmpX, tmpY);
+        context.arc(tmpX, tmpY, 2, 0, 2*Math.PI, false);
+        context.font = "bold 14px Arial";
+        context.fillText(response.result.daily[0].day.temphigh, tmpX, tmpY+20);
+
+        for(var i = 1; i < 7 ; i++){
+            tmpX += 100;
+            tmpY = ( ((maxTemp - minTemp) - (Number(response.result.daily[i].day.temphigh) - minTemp))/(maxTemp - minTemp)) * 190;
+            context.lineTo(tmpX, tmpY);
+            context.arc(tmpX, tmpY, 2, 0, 2*Math.PI, false);
+            context.font = "bold 14px Arial";
+            context.fillText(response.result.daily[i].day.temphigh, tmpX, tmpY+20);
+        }
+
+        // LowTemp Chart
+        tmpX = 50;
+        tmpY = (( (maxTemp - minTemp) - (Number(response.result.daily[0].night.templow) - minTemp) )/(maxTemp - minTemp)) * 190;
+        context.moveTo(tmpX, tmpY);
+        context.arc(tmpX, tmpY, 2, 0, 2*Math.PI, false);
+        context.font = "bold 14px Arial";
+        context.fillText(response.result.daily[0].night.templow, tmpX, tmpY-10);
+
+        for(var i = 1; i < 7 ; i++){
+            tmpX += 100;
+            tmpY = (( (maxTemp - minTemp) - (Number(response.result.daily[i].night.templow) - minTemp) )/(maxTemp - minTemp)) * 190;
+            context.lineTo(tmpX, tmpY);
+            context.arc(tmpX, tmpY, 2, 0, 2*Math.PI, false);
+            context.font = "bold 14px Arial";
+            context.fillText(response.result.daily[i].night.templow, tmpX, tmpY-10);
+        }
+
+        // Stroke Path
+        context.strokeStyle = "aqua";
+        context.stroke();
+
     }
 
 
@@ -152,16 +219,20 @@ document.onkeydown = function (event) {
 }
 
 
-function claerDOM(){
+function clearDOM(){
     var parent = document.getElementById("weeklyWeatherList");
     while(parent.children[0] != null){
-        parent.removeChild(parent.children[0])
-    };
+        parent.removeChild(parent.children[0]);
+    }
 
     parent = document.getElementById("hourlyWeatherList");
     while(parent.children[0] != null){
-        parent.removeChild(parent.children[0])
-    };
+        parent.removeChild(parent.children[0]);
+    }
 
+    // Clear Canvas
+    var c=document.getElementById("weeklyWeatherChart");  
+    c.width=c.width;
+    // 由于canvas每当高度或宽度被重设时，画布内容就会被清空，因此可以用以下方法清空：（此方法仅限需要清除全部内容的情况）
 }
 

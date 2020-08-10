@@ -98,6 +98,17 @@ body{
     padding:11px 0 25px
 }
 
+#weeklyWeatherList .item >div >img{
+    width: 40px;
+    height: 40px;
+}
+
+#weeklyWeatherChart{
+    position: absolute;
+    right: 140px;
+    top: 275px;
+}
+
 
 #hourlyWeatherContainer{
     width: 1240px;
