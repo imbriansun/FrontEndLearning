@@ -173,8 +173,29 @@ function handleResponse(response){
         hourlyWeatherList.appendChild(thisHourInfo);
     }
 
-    // 
+    // Handling Weather Tips
+    var weatherTipsList = document.getElementById("weatherTipsList");
+    for(var i = 0; i < 7; i++){
+        let item = document.createElement("li");
+        let coverTips = document.createElement("div");
+        coverTips.setAttribute("class", "outdiv");
+        let coverTipsP = document.createElement("span");
+        coverTipsP.innerHTML = response.result.index[i].iname + "<br>" + response.result.index[i].ivalue;
+        coverTipsP.setAttribute("class", "coverText");
+        let innerTips = document.createElement("div");
+        innerTips.setAttribute("class", "innerdiv")
+        let innerTipsP = document.createElement("span");
+        innerTipsP.innerText = response.result.index[i].detail;
+        innerTipsP.setAttribute("class", "innerText");
 
+        coverTips.appendChild(coverTipsP);
+        innerTips.appendChild(innerTipsP);
+
+        item.appendChild(coverTips);
+        item.appendChild(innerTips);
+        
+        weatherTipsList.appendChild(item);
+    }
 
     // setPositionForWeatherInfoVisible
     setPositionForWeatherInfo();
@@ -192,6 +213,7 @@ function setPositionForWeatherInfo(){
     header.style.visibility = "hidden";
     ad.style.visibility = "hidden";
     hourlyWeatherContainer.style.visibility = "visible";
+    weatherTipsContainer.style.visibility = "visible";
 }
 
 

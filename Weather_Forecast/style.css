@@ -74,6 +74,8 @@ body{
 }
 
 #weeklyWeatherContainer{
+    height: 520px;
+    width: 740px;
     visibility: hidden;
 }
 
@@ -82,9 +84,9 @@ body{
     box-shadow: 2px 2px 5px black;
     position: absolute;
     right: 140px;
-    top: 60px;
+    top: 60px;    
     width: 700px;
-    height: 500px;
+    height: 520px;
 }
 
 #weeklyWeatherList .item{
@@ -112,18 +114,15 @@ body{
 
 
 #hourlyWeatherContainer{
+    height: 300px;
     width: 1240px;
-    top:600px;
-    position: absolute;
-    left: 30px;
+    top: 75px;
+    position: relative;
     visibility: hidden;
-}
-
-#hourlyWeatherList{
     background-color: rgba(0, 0, 0, 0.25);
     box-shadow: 2px 2px 5px black;
-    position: absolute;
 }
+
 
 #hourlyWeatherList .item{
     float:left;
@@ -134,10 +133,85 @@ body{
     font-size: 16px;
     background-repeat:no-repeat;
     background-position:right;
-    position: relative;
 }
 
 #hourlyWeatherList .item >img{
     width: 30px;
     height: 30px;
 }
+
+#weatherTipsContainer{
+    position: relative;
+    top: 80px;
+    width: 1240px;
+    height: 180px;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 2px 2px 5px black;
+}
+
+#weatherTipsList{
+    height: 140px;
+    width: 1240px;
+    margin: 20px;
+}
+
+#weatherTipsList li {
+    position: relative;
+    left: 0;
+    height: 140px;
+    width: 140px;
+    float: left;
+    margin: 10px;
+    overflow: hidden;
+}
+
+#weatherTipsList li div{
+    position: relative;
+    top: 15px;
+    height: 140px;
+    width: 140px;
+    background-color: rgba(245, 140, 70, 0.75);
+    text-shadow: none;
+}
+
+#weatherTipsList li div span{
+    font-size: 13px;
+}
+
+.coverText{
+    position: relative;
+    top: 25%;
+    left: 10%;
+}
+
+.innerText{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+
+
+.outdiv{
+    transition: transform 0.8s;
+}
+
+.outdiv:hover{
+    transform: translateY(-140px);
+}
+
+.innerdiv{
+    transition: transform 0.8s;
+}
+
+
+.outdiv:hover + .innerdiv{
+    transform: translateY(-140px);
+}
+
+
+
+
+
+
