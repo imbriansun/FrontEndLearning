@@ -171,7 +171,7 @@ body{
     top: 15px;
     height: 140px;
     width: 140px;
-    background-color: rgba(245, 140, 70, 0.75);
+    background-color: rgba(255,192,203,0.75);
     text-shadow: none;
 }
 
@@ -209,9 +209,5 @@ body{
 .outdiv:hover + .innerdiv{
     transform: translateY(-140px);
 }
-
-
-
-
 
 

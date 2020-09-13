@@ -258,5 +258,11 @@ function clearDOM(){
     var c=document.getElementById("weeklyWeatherChart");  
     c.width=c.width;
     // 由于canvas每当高度或宽度被重设时，画布内容就会被清空，因此可以用以下方法清空：（此方法仅限需要清除全部内容的情况）
+
+    // Clear WheatherTips
+    parent=document.getElementById("weatherTipsList");
+    while(parent.children[0] != null){
+        parent.removeChild(parent.children[0]);
+    }
 }
 
