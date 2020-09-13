@@ -16,14 +16,14 @@ body{
 #header {
     color: burlywood;
     left: 50px;
-    position: absolute;
+    position: fixed;
 } 
 
 #provider{
     font-size: 20px;
     color: white;
     text-shadow: none;
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     left: 50px;
 }
