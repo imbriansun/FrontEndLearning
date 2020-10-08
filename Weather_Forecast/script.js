@@ -223,7 +223,7 @@ function searchWeather(searchTerm){
     document.body.insertBefore(script, document.body.firstChild);
 }
 
-
+// START -- 使用技术：动态script
 document.getElementById("searchBtn").addEventListener("click", function(){
     var searchTerm = document.getElementById("searchInput").value;
     if(searchTerm){
