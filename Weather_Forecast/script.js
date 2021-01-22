@@ -1,3 +1,6 @@
+// response参数就是极速api返回来的JSON对象
+// 详细解释JSONP：https://stackoverflow.com/questions/2067472/what-is-jsonp-and-why-was-it-created
+
 function handleResponse(response){
     if(response.status != 0){
         alert("请输入正确的中国大陆城市中文简体名");
